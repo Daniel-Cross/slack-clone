@@ -15,7 +15,6 @@ class Root extends Component {
 			email: '',
 			password: '',
 			confirmPassword: '',
-			passwordError: 'Passwords do not match',
 			passwordMatch: true,
 		};
 	}
@@ -43,7 +42,7 @@ class Root extends Component {
 	};
 
 	render() {
-		const { name, email, password, confirmPassword, passwordError, passwordMatch } = this.state;
+		const { name, email, password, confirmPassword, passwordMatch } = this.state;
 		return (
 			<Router>
 				<Switch>
@@ -59,7 +58,6 @@ class Root extends Component {
 								email={email}
 								password={password}
 								confirmPassword={confirmPassword}
-								passwordError={passwordError}
 								passwordMatch={passwordMatch}
 							/>
 						)}

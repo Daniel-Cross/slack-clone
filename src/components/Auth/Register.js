@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import '../../styles/Register.css';
 
 const Register = (props) => {
 	const {
@@ -6,18 +9,18 @@ const Register = (props) => {
 		email,
 		password,
 		confirmPassword,
-		passwordError,
 		passwordMatch,
 		handleInputChange,
 		handleFormSubmit,
 		handleKeyUp,
 	} = props;
+
 	return (
 		<div id="Register">
 			<i className="fas fa-meteor fa-5x" />
 			<h1>Register for Tack</h1>
-			{!passwordMatch ? passwordError : null}
-			<form onSubmit={handleFormSubmit}>
+			<form onSubmit={handleFormSubmit} className="registerForm">
+				{!passwordMatch ? <p className="passwordMatch">Passwords do not match</p> : null}
 				<input type="text" placeholder="name" name="name" value={name} onChange={handleInputChange} required />
 				<input
 					type="email"
@@ -47,6 +50,9 @@ const Register = (props) => {
 				/>
 				<button action="submit">Submit</button>
 			</form>
+			<Link to="/login">
+				<button>Already a user? Login here</button>
+			</Link>
 		</div>
 	);
 };
