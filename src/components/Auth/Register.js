@@ -5,7 +5,7 @@ import '../../styles/Register.css';
 
 const Register = (props) => {
 	const {
-		name,
+		username,
 		email,
 		password,
 		confirmPassword,
@@ -13,15 +13,25 @@ const Register = (props) => {
 		handleInputChange,
 		handleFormSubmit,
 		handleKeyUp,
+		error,
 	} = props;
 
 	return (
 		<div id="Register">
 			<i className="fas fa-meteor fa-5x" />
-			<h1>Register for Tack</h1>
+			<h1>Register for Kompis</h1>
 			<form onSubmit={handleFormSubmit} className="registerForm">
 				{!passwordMatch ? <p className="passwordMatch">Passwords do not match</p> : null}
-				<input type="text" placeholder="name" name="name" value={name} onChange={handleInputChange} required />
+				{error ? <p className="passwordMatch">{error}</p> : null}
+
+				<input
+					type="text"
+					placeholder="username"
+					name="username"
+					value={username}
+					onChange={handleInputChange}
+					required
+				/>
 				<input
 					type="email"
 					placeholder="email"
