@@ -1,4 +1,4 @@
-#Register {
+#Login {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,15 +7,15 @@
   flex-basis: 450px;
 }
 
-#Register .logo {
+#Login .logo {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: rgb(255, 115, 72)
+  color: rgb(157, 72, 255);
 }
 
-#Register .registerForm {
+#Login .loginForm {
   display: flex;
   flex-direction: column;
   border: solid 1px rgb(119, 119, 119);
@@ -26,7 +26,7 @@
   margin-bottom: 30px;
 }
 
-#Register .registerForm input {
+#Login .loginForm input {
   padding: 10px;
   margin: 10px;
   border-radius: 4px;
@@ -35,24 +35,24 @@
   font-size: 16px;
 }
 
-#Register .registerForm button {
+#Login .loginForm button {
   width: 320px;
   margin: 10px;
   padding: 10px;
   font-size: 16px;
   border: none;
   border-radius: 4px;
-  background-color: rgb(255, 115, 72);
+  background-color: rgb(157, 72, 255);
   color: #fff;
 }
 
-#Register button {
+#Login button {
   width: 320px;
   padding: 10px;
   font-size: 16px;
   border: none;
   border-radius: 4px;
-  background-color: rgb(126, 66, 223);
+  background-color: rgb(157, 72, 255);
   color: #fff;
 }
 
@@ -60,7 +60,7 @@ button:hover {
   cursor: pointer;
 }
 
-#Register .passwordMatch {
+#Login .passwordMatch {
   color: red;
   background-color: rgb(247, 166, 166);
   width: 300px;

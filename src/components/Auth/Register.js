@@ -18,8 +18,10 @@ const Register = (props) => {
 
 	return (
 		<div id="Register">
-			<i className="fas fa-meteor fa-5x" />
-			<h1>Register for Kompis</h1>
+			<div className="logo">
+				<i className="fas fa-meteor fa-5x" />
+				<h1>Register for Kompis</h1>
+			</div>
 			<form onSubmit={handleFormSubmit} className="registerForm">
 				{!passwordMatch ? <p className="passwordMatch">Passwords do not match</p> : null}
 				{error ? <p className="passwordMatch">{error}</p> : null}
