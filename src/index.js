@@ -27,6 +27,7 @@ class Root extends Component {
 			passwordMatch: true,
 			error: '',
 			userRef: firebase.database().ref('users'),
+			showDropDown: false,
 		};
 	}
 
@@ -112,11 +113,23 @@ class Root extends Component {
 			});
 	};
 
+	handleDropMenu = (e) => {
+		e.preventDefault();
+
+		this.setState((e) => ({
+			showDropDown: !e.showDropDown,
+		}));
+	};
+
 	render() {
-		const { username, email, password, confirmPassword, passwordMatch, error } = this.state;
+		const { username, email, password, confirmPassword, passwordMatch, error, showDropDown } = this.state;
 		return (
 			<Switch>
-				<Route exact path="/" render={() => <App />} />
+				<Route
+					exact
+					path="/"
+					render={() => <App showDropDown={showDropDown} handleDropMenu={this.handleDropMenu} />}
+				/>
 				<Route
 					path="/register"
 					render={() => (

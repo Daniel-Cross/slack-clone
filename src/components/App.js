@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
+import SideMenu from './SideMenu';
+import Header from './Header';
 
 class App extends Component {
-	render() {
+	render(props) {
+		const { showDropDown, handleDropMenu } = this.props;
+
 		return (
 			<div id="App">
-				<p>Hello World</p>
+				<SideMenu showDropDown={showDropDown} handleDropMenu={handleDropMenu} />
+				<Header />
 			</div>
 		);
 	}
