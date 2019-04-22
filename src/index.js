@@ -7,7 +7,6 @@ import Login from './components/Auth/Login';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom';
 import firebase from './components/firebase';
-import md5 from 'md5';
 import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -72,7 +71,7 @@ class Root extends Component {
 				createUserId.user
 					.updateProfile({
 						displayName: username,
-						photoURL: `https://gravatar.com/avatar${md5(createUserId.user.email)}?d=identicon`,
+						photoURL: `https://ui-avatars.com/api/?name=${this.state.username}&size=32&rounded=true`,
 					})
 					.then(() => {
 						this.saveUser(createUserId).then(() => {

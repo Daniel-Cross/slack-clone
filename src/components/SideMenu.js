@@ -1,42 +1,46 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../styles/SideMenu.css';
-import { connect } from 'react-redux';
 
-const SideMenu = (props) => {
-	console.log(props.currentUser);
-	const { handleDropMenu, handleSignOut, showDropDown } = props;
-	return (
-		<div id="SideMenu">
-			<div className="icon">
-				<i className="fas fa-meteor fa-3x" />
-				<h2>Kompis</h2>
-			</div>
+class SideMenu extends Component {
+	state = {
+		user: this.props.currentUser,
+	};
 
-			{showDropDown ? (
-				<div className="dropdown">
-					<button className="dropbtn" onClick={handleDropMenu}>
-						User<i className="fas fa-sort-up" />
-					</button>
-					<div id="dropDown" className="dropDown-content">
-						<p>
-							Signed in as <img src={props.currentUser.photoURL} alt="avatar" />
-							<strong>{props.currentUser.displayName}</strong>
-						</p>
-						<p>Change avatar</p>
-						<p onClick={handleSignOut}>Sign out</p>
-					</div>
+	render() {
+		const { handleDropMenu, handleSignOut, showDropDown } = this.props;
+
+		return (
+			<div id="SideMenu">
+				<div className="icon">
+					<i className="fas fa-meteor fa-3x" />
+					<h2>Kompis</h2>
 				</div>
-			) : (
-				<button className="dropbtn" onClick={handleDropMenu}>
-					User<i className="fas fa-sort-down" />
-				</button>
-			)}
-		</div>
-	);
-};
 
-const mapStateToProps = (state) => ({
-	currentUser: state.user.currentUser,
-});
+				{showDropDown ? (
+					<div className="dropdown">
+						<button className="dropbtn" onClick={handleDropMenu}>
+							{/* <img src={this.state.user.photoURL} alt="avatar" /> */}
+							{this.state.user.displayName}
+							<i className="fas fa-sort-up" />
+						</button>
+						<div id="dropDown" className="dropDown-content">
+							<p>
+								Signed in as <strong>{this.state.user.displayName}</strong>
+							</p>
+							<p>Change avatar</p>
+							<p onClick={handleSignOut}>Sign out</p>
+						</div>
+					</div>
+				) : (
+					<button className="dropbtn" onClick={handleDropMenu}>
+						{/* <img src={this.state.user.photoURL} alt="avatar" /> */}
+						{this.state.user.displayName}
+						<i className="fas fa-sort-down" />
+					</button>
+				)}
+			</div>
+		);
+	}
+}
 
-export default connect(mapStateToProps)(SideMenu);
+export default SideMenu;
