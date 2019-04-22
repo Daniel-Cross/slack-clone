@@ -5,11 +5,11 @@ import Header from './Header';
 
 class App extends Component {
 	render(props) {
-		const { showDropDown, handleDropMenu } = this.props;
+		const { showDropDown, handleDropMenu, handleSignOut } = this.props;
 
 		return (
 			<div id="App">
-				<SideMenu showDropDown={showDropDown} handleDropMenu={handleDropMenu} />
+				<SideMenu showDropDown={showDropDown} handleDropMenu={handleDropMenu} handleSignOut={handleSignOut} />
 				<Header />
 			</div>
 		);

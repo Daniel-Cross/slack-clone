@@ -12,7 +12,7 @@ import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
-import { setUser } from './actions';
+import { setUser, clearUser } from './actions';
 
 const store = createStore(rootReducer, composeWithDevTools());
 
@@ -36,6 +36,9 @@ class Root extends Component {
 			if (user) {
 				this.props.setUser(user);
 				this.props.history.push('/');
+			} else {
+				this.props.history.push('/login');
+				this.props.clearUser();
 			}
 		});
 	};
@@ -121,6 +124,12 @@ class Root extends Component {
 		}));
 	};
 
+	handleSignOut = () => {
+		firebase.auth().signOut().then(() => {
+			console.log('Signed out!');
+		});
+	};
+
 	render() {
 		const { username, email, password, confirmPassword, passwordMatch, error, showDropDown } = this.state;
 		return (
@@ -128,7 +137,13 @@ class Root extends Component {
 				<Route
 					exact
 					path="/"
-					render={() => <App showDropDown={showDropDown} handleDropMenu={this.handleDropMenu} />}
+					render={() => (
+						<App
+							showDropDown={showDropDown}
+							handleDropMenu={this.handleDropMenu}
+							handleSignOut={this.handleSignOut}
+						/>
+					)}
 				/>
 				<Route
 					path="/register"
@@ -165,7 +180,7 @@ class Root extends Component {
 
 export default Root;
 
-const RootWithAuth = withRouter(connect(null, { setUser })(Root));
+const RootWithAuth = withRouter(connect(null, { setUser, clearUser })(Root));
 
 ReactDOM.render(
 	<Provider store={store}>
