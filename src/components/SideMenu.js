@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Channels from './Channels';
 import '../styles/SideMenu.css';
 
 class SideMenu extends Component {
@@ -7,7 +8,7 @@ class SideMenu extends Component {
 	};
 
 	render() {
-		const { handleDropMenu, handleSignOut, showDropDown } = this.props;
+		const { handleDropMenu, handleSignOut, showDropDown, channels } = this.props;
 
 		return (
 			<div id="SideMenu">
@@ -19,7 +20,7 @@ class SideMenu extends Component {
 				{showDropDown ? (
 					<div className="dropdown">
 						<button className="dropbtn" onClick={handleDropMenu}>
-							{/* <img src={this.state.user.photoURL} alt="avatar" /> */}
+							<img src={this.state.user.photoURL} alt="avatar" />
 							{this.state.user.displayName}
 							<i className="fas fa-sort-up" />
 						</button>
@@ -32,12 +33,15 @@ class SideMenu extends Component {
 						</div>
 					</div>
 				) : (
-					<button className="dropbtn" onClick={handleDropMenu}>
-						{/* <img src={this.state.user.photoURL} alt="avatar" /> */}
-						{this.state.user.displayName}
-						<i className="fas fa-sort-down" />
-					</button>
+					<div className="dropdown">
+						<button className="dropbtn" onClick={handleDropMenu}>
+							<img src={this.state.user.photoURL} alt="avatar" />
+							{this.state.user.displayName}
+							<i className="fas fa-sort-down" />
+						</button>
+					</div>
 				)}
+				<Channels channels={channels} />
 			</div>
 		);
 	}

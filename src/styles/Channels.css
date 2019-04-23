@@ -1,0 +1,10 @@
+#Channels {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#Channels i {
+  margin: 20px;
+}

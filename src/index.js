@@ -27,6 +27,7 @@ class Root extends Component {
 			error: '',
 			userRef: firebase.database().ref('users'),
 			showDropDown: false,
+			channels: [],
 		};
 	}
 
@@ -130,7 +131,7 @@ class Root extends Component {
 	};
 
 	render() {
-		const { username, email, password, confirmPassword, passwordMatch, error, showDropDown } = this.state;
+		const { username, email, password, confirmPassword, passwordMatch, error, showDropDown, channels } = this.state;
 		return (
 			<Switch>
 				<Route
@@ -141,6 +142,7 @@ class Root extends Component {
 							showDropDown={showDropDown}
 							handleDropMenu={this.handleDropMenu}
 							handleSignOut={this.handleSignOut}
+							channels={channels}
 						/>
 					)}
 				/>
