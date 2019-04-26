@@ -8,3 +8,7 @@
 #Channels i {
   margin: 20px;
 }
+
+#Channels i:hover {
+  cursor: pointer;
+}

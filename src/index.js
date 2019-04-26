@@ -28,6 +28,7 @@ class Root extends Component {
 			userRef: firebase.database().ref('users'),
 			showDropDown: false,
 			channels: [],
+			showModal: false,
 		};
 	}
 
@@ -130,8 +131,26 @@ class Root extends Component {
 		});
 	};
 
+	handleShowModal = (e) => {
+		e.preventDefault();
+
+		this.setState((e) => ({
+			showModal: !e.showModal,
+		}));
+	};
+
 	render() {
-		const { username, email, password, confirmPassword, passwordMatch, error, showDropDown, channels } = this.state;
+		const {
+			username,
+			email,
+			password,
+			confirmPassword,
+			passwordMatch,
+			error,
+			showDropDown,
+			channels,
+			showModal,
+		} = this.state;
 		return (
 			<Switch>
 				<Route
@@ -139,10 +158,12 @@ class Root extends Component {
 					path="/"
 					render={() => (
 						<App
-							showDropDown={showDropDown}
 							handleDropMenu={this.handleDropMenu}
 							handleSignOut={this.handleSignOut}
+							handleShowModal={this.handleShowModal}
 							channels={channels}
+							showModal={showModal}
+							showDropDown={showDropDown}
 						/>
 					)}
 				/>
