@@ -8,7 +8,7 @@ class SideMenu extends Component {
 	};
 
 	render() {
-		const { handleDropMenu, handleShowModal, handleSignOut, showDropDown, channels } = this.props;
+		const { handleDropMenu, handleShowModal, handleSignOut, showDropDown, channels, showModal } = this.props;
 
 		return (
 			<div id="SideMenu">
@@ -41,7 +41,7 @@ class SideMenu extends Component {
 						</button>
 					</div>
 				)}
-				<Channels channels={channels} handleShowModal={handleShowModal} />
+				<Channels channels={channels} handleShowModal={handleShowModal} showModal={showModal} />
 			</div>
 		);
 	}

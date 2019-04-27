@@ -6,7 +6,15 @@ import { connect } from 'react-redux';
 
 class App extends Component {
 	render() {
-		const { showDropDown, handleDropMenu, handleSignOut, currentUser, channels, handleShowModal } = this.props;
+		const {
+			showDropDown,
+			handleDropMenu,
+			handleSignOut,
+			currentUser,
+			channels,
+			handleShowModal,
+			showModal,
+		} = this.props;
 
 		return (
 			<div id="App">
@@ -17,6 +25,7 @@ class App extends Component {
 					showDropDown={showDropDown}
 					currentUser={currentUser}
 					channels={channels}
+					showModal={showModal}
 				/>
 				<Header />
 			</div>

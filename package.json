@@ -26,5 +26,18 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "description": "Slack clone",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daniel-Cross/slack-clone.git"
+  },
+  "author": "Daniel Cross",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Daniel-Cross/slack-clone/issues"
+  },
+  "homepage": "https://github.com/Daniel-Cross/slack-clone#readme"
 }
