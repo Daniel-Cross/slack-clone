@@ -2,7 +2,12 @@ import React from 'react';
 
 const Modal = (props) => {
 	return (
-		<div id="Modal">
+		<div
+			id="Modal"
+			style={{
+				transform: props.showModal ? 'translateY(0vh)' : 'translateY(-100vh)',
+				opacity: props.showModal ? '1' : '0',
+			}}>
 			<p>I'm a pop up modal</p>
 		</div>
 	);
